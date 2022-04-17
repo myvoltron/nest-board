@@ -5,7 +5,9 @@ import { PostsModule } from './posts/posts.module';
 import { UsersModule } from './users/users.module';
 import { CommentsModule } from './comments/comments.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Post } from './posts/entities/post.entity';
+import { Post } from './entity/post.entity';
+import { User } from './entity/user.entity';
+import { Comment } from './entity/comment.entity';
 
 @Module({
   imports: [PostsModule, UsersModule, CommentsModule, 
@@ -16,7 +18,7 @@ import { Post } from './posts/entities/post.entity';
     username: 'root', 
     password: '111111',
     database: 'nest-board', 
-    entities: [Post], 
+    entities: [Post, User, Comment], 
     synchronize: true,  
   })],
 })
